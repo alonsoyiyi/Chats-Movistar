@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0; /* Alinea la barra en la parte superior */
+    left: 0; /* Alinea la barra al borde izquierdo */
+    width: 100%; /* Asegura que la barra ocupe todo el ancho */
+    z-index: 1000; /* Asegura que la barra esté sobre otros contenidos */
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    margin-top: 50px; 
+}
+
+.sidebar {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 50px; /* Ancho inicial de la sidebar */
+    height: 100%;
+    background-color: #3498db;
+    color: #fff;
+    transition: width 0.3s;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.sidebar:hover {
+    width: 400px; /* Ancho de la sidebar al pasar el mouse */
+}
+
+.tema {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tema::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .tema::after {
+    opacity: 1;
+}
+
+.content {
+    margin-left: 50px; /* Ancho inicial de la sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s;
+}
+
+
+.logo img{
+    width: 500px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex: 1;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-fields label,
+.input-fields input,
+.input-fields button {
+    margin: 5px 0;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.temas {
+    width: 50%; /* Ajusta el ancho del índice */
+    margin-right: 20px;
+}
+
+.tema-content {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.subtema {
+    padding: 10px;
+    background-color: #2980b9;
+    color: #fff;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.output {
+    flex: 1; /* Ajusta el área de texto del chat */
+}
+
+.mensaje-texto {
+    width: 100%; /* O ajusta a un tamaño específico, como 500px */
+    height: 700px; /* Ajusta la altura según tus necesidades */
+    box-sizing: border-box; /* Incluye el padding y el border en el tamaño total */
+    overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño */
+    resize: none; /* Evita que el textarea sea redimensionable */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del textarea */
+    border-radius: 4px; /* Bordes redondeados opcionales */
+}
